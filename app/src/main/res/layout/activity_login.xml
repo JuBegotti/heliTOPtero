@@ -15,6 +15,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/helinho"
+            android:layout_gravity="center"
+            />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutEmail"
@@ -48,10 +54,10 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/appCompatButtonLogin"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/buttons"
             android:text="@string/action_sign_in" />
 
         <android.support.v7.widget.AppCompatTextView

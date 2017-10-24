@@ -1,6 +1,7 @@
 package com.networks.test.esi;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -44,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().hide();
+        getSupportActionBar().setTitle("Cadastro");
 
         initViews();
         initListeners();
@@ -125,7 +126,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
-
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
 
         } else {
             Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
