@@ -4,6 +4,10 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_nome">Nome</string>
+    <string name="prompt_last_name">Sobrenome</string>
+    <string name="prompt_nascimento">Data de nascimento</string>
+    <string name="prompt_endereco">Rua/Avenida, nº, Complemento, Bairro</string>
+    <string name="prompt_localizacao">CEP, Cidade-Estado</string>
     <string name="prompt_password">Senha</string>
     <string name="prompt_confirm">Confirme a senha</string>
     <string name="prompt_">Email</string>
@@ -12,7 +16,8 @@
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_up">Não tem uma conta? Registre-se!</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_name">Coloque o nome completo</string>
+    <string name="error_invalid_name">Coloque o nome</string>
+    <string name="error_invalid_last_name">Coloque seu sobrenome</string>
     <string name="error_invalid_email">Email inválido</string>
     <string name="error_invalid_password">Senha inválida</string>
     <string name="error_incorrect_password">Senha incorreta</string>
@@ -21,7 +26,22 @@
     <string name="error_email_exists">Email já existe</string>
     <string name="error_valid_email_password">Email ou senha incorretos</string>
     <string name="success_message">Registro feito com sucesso!</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."</string>
-    <string name="title_activity_main">heliTOPtero</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    
+    <!-- Stings related to menu -->
+    <string name="cadastro">Cadastro</string>
+    <string name="perfil">Perfil</string>
+    <string name="preferencias">Preferências</string>
+    <string name="busca_inventario">Buscar no Inventário</string>
+    <string name="inserir_inventario">Inserir Item no Inventário</string>
+    <string name="relat_vendas">Relatório de Vendas</string>
+
+    <!-- Strings Perfil -->
+    <string name="nome_string">Nome</string>
+    <string name="sobrenome_string">Sobrenome</string>
+    <string name="nascimento_string">00/00/0000</string>
+    <string name="endereco_string">Rua Nova, nº 1, Centro</string>
+    <string name="localizacao_string">00000-000, São Paulo-SP</string>
+    <string name="cargo_string">Gerente</string>
+    <string name="email_string">gerente@helitoptero.com</string>
 </resources>

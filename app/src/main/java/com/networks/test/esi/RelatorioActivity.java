@@ -13,7 +13,7 @@ public class RelatorioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_relatorio);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Relatório de Vendas");
+        getSupportActionBar().setTitle(R.string.relat_vendas);
     }
 
     @Override

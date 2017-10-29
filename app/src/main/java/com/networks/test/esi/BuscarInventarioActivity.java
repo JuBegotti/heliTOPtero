@@ -13,7 +13,7 @@ public class BuscarInventarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_buscar_inventario);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Buscar ítem no inventário");
+        getSupportActionBar().setTitle(R.string.busca_inventario);
     }
 
     @Override

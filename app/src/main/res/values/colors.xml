@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#ff3d00</color>
     <color name="colorPrimaryDark">#ff3d00</color>
-    <color name="colorAccent">#f43910</color>
-    <color name="app_name">#000000</color>
-    <color name="title_activity_main">#000000</color>
+    <color name="corDestaque">#f43910</color>
+    <color name="preto">#000000</color>
+    <color name="branco">#ffffff</color>
+    <color name="cinzinha">#eaeaea</color>
     <color name="buttons">#bdbdbd</color>
 </resources>

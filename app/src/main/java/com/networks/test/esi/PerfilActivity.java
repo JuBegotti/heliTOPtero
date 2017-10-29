@@ -13,7 +13,7 @@ public class PerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Perfil");
+        getSupportActionBar().setTitle(R.string.perfil);
     }
 
     @Override

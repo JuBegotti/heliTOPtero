@@ -13,7 +13,7 @@ public class PreferenciasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preferencias);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Preferências");
+        getSupportActionBar().setTitle(R.string.preferencias);
     }
 
     @Override

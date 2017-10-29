@@ -13,7 +13,7 @@ public class InserirInventarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inserir_inventario);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Inserir ítem no inventário");
+        getSupportActionBar().setTitle(R.string.inserir_inventario);
     }
 
     @Override
