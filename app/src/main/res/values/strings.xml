@@ -58,7 +58,7 @@
     <!-- Strings Inserir item -->
     <string name="item_nome">Nome do produto</string>
     <string name="item_fabricante">Fabricante</string>
-    <string name="item_capacidade">Capacidade</string>
+    <string name="item_capacidade">Capacidade de pessoas</string>
     <string name="item_compra">Preço de compra</string>
     <string name="item_venda">Preço de venda</string>
     <string name="item_velocidade">Velocidade</string>
