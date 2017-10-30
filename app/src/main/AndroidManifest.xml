@@ -31,7 +31,8 @@
         <activity android:name=".PerfilActivity" />
         <activity android:name=".InserirInventarioActivity" />
         <activity android:name=".BuscarInventarioActivity" />
-        <activity android:name=".RelatorioActivity"></activity>
+        <activity android:name=".RelatorioActivity" />
+        <activity android:name=".MostrarHeliActivity"></activity>
     </application>
 
 </manifest>

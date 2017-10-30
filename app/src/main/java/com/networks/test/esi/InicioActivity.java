@@ -12,24 +12,20 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
     }
+
     public void irPreferencias(View view) {
-        Intent intent = new Intent(this, PreferenciasActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, PreferenciasActivity.class));
     }
     public void irPerfil(View view) {
-        Intent intent = new Intent(this, PerfilActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, PerfilActivity.class));
     }
     public void irInserir(View view) {
-        Intent intent = new Intent(this, InserirInventarioActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, InserirInventarioActivity.class));
     }
     public void irInventario(View view) {
-        Intent intent = new Intent(this, BuscarInventarioActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, BuscarInventarioActivity.class));
     }
     public void irRelatorio(View view) {
-        Intent intent = new Intent(this, RelatorioActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RelatorioActivity.class));
     }
 }

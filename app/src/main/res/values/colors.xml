@@ -7,4 +7,5 @@
     <color name="branco">#ffffff</color>
     <color name="cinzinha">#eaeaea</color>
     <color name="buttons">#bdbdbd</color>
+    <color name="transparente">#00000000</color>
 </resources>

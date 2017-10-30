@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 public class BuscarInventarioActivity extends AppCompatActivity {
 
@@ -26,5 +27,8 @@ public class BuscarInventarioActivity extends AppCompatActivity {
             default:break;
         }
         return true;
+    }
+    public void irVerHelinho(View view) {
+        startActivity(new Intent(this, MostrarHeliActivity.class));
     }
 }

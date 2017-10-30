@@ -27,7 +27,7 @@
     <string name="error_valid_email_password">Email ou senha incorretos</string>
     <string name="success_message">Registro feito com sucesso!</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    
+
     <!-- Stings related to menu -->
     <string name="cadastro">Cadastro</string>
     <string name="perfil">Perfil</string>
@@ -44,4 +44,13 @@
     <string name="localizacao_string">00000-000, São Paulo-SP</string>
     <string name="cargo_string">Gerente</string>
     <string name="email_string">gerente@helitoptero.com</string>
+
+    <!-- String helinho -->
+    <string name="helinho_nome">Nome do helinho</string>
+    <string name="helinho_preco_string">Preço</string>
+    <string name="helinho_preco">$ 00,00</string>
+    <string name="helinho_capacidade_string">Capacidade de passageiros</string>
+    <string name="helinho_capacidade">0</string>
+    <string name="helinho_velocidade_string">Velocidade km/h</string>
+    <string name="helinho_velocidade">0</string>
 </resources>
