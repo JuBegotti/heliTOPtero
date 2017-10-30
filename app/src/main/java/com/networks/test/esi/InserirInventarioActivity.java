@@ -10,6 +10,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class InserirInventarioActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -34,8 +35,7 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
     private TextInputEditText InsertPrice;
 
 
-    private AppCompatButton appCompatButtonRegister;
-    private AppCompatTextView appCompatTextViewLoginLink;
+    private Button registerItem;
 
     private DatabaseHelper databaseHelper;
     private Helicopter heli;
