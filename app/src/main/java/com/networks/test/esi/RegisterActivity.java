@@ -14,9 +14,6 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.networks.test.esi.R;
-import com.networks.test.esi.InputValidation;
-import com.networks.test.esi.User;
-import com.networks.test.esi.DatabaseHelper;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 

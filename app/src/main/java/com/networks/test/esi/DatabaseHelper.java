@@ -21,12 +21,35 @@ class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_USER_PASSWORD = "user_password";
 
+    //Helicopteros
+    private static final String TABLE_CHOPPA = "helicopters";
+
+    private static final String COLUMN_CHOPPA_ID = "heli_id";
+    private static final String COLUMN_CHOPPA_NOME = "heli_nome";
+    private static final String COLUMN_CHOPPA_FABRICANTE = "heli_fabricante";
+    private static final String COLUMN_CHOPPA_CAPACIDADE = "heli_capacidade";
+    private static final String COLUMN_CHOPPA_VELOCIDADE = "heli_velocidade";
+    private static final String COLUMN_CHOPPA_ACELERACAO = "heli_aceleracao";
+    private static final String COLUMN_CHOPPA_CONTROLE = "heli_controle";
+    private static final String COLUMN_CHOPPA_FRENAGEM = "heli_frenagem";
+    private static final String COLUMN_CHOPPA_MEDIA = "heli_media";
+    private static final String COLUMN_CHOPPA_COMPRA = "heli_compra";
+
+
+
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
             + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + ")";
 
+    private String CREATE_CHOPPA_TABLE = "CREATE TABLE " + TABLE_CHOPPA + "("
+            + COLUMN_CHOPPA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+COLUMN_CHOPPA_NOME +" TEXT,"
+            + COLUMN_CHOPPA_FABRICANTE + " TEXT," + COLUMN_CHOPPA_CAPACIDADE + " INTEGER,"
+            + COLUMN_CHOPPA_VELOCIDADE + " FLOAT," + COLUMN_CHOPPA_ACELERACAO + " FLOAT,"
+            + COLUMN_CHOPPA_CONTROLE + " FLOAT," + COLUMN_CHOPPA_FRENAGEM + " FLOAT,"
+            + COLUMN_CHOPPA_MEDIA + " FLOAT," + COLUMN_CHOPPA_COMPRA + " FLOAT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
+    private String DROP_CHOPPA_TABLE = "DROP TABLE IF EXISTS " + TABLE_CHOPPA;
 
 
     DatabaseHelper(Context context) {
@@ -36,6 +59,7 @@ class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_CHOPPA_TABLE);
     }
 
 
@@ -44,12 +68,14 @@ class DatabaseHelper extends SQLiteOpenHelper{
 
 
         db.execSQL(DROP_USER_TABLE);
-
+        db.execSQL(DROP_CHOPPA_TABLE);
 
         onCreate(db);
 
     }
 
+
+    //USER
     void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -101,7 +127,7 @@ class DatabaseHelper extends SQLiteOpenHelper{
         return userList;
     }
 
-/*    public void updateUser(User user) {
+    public void updateUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -119,7 +145,7 @@ class DatabaseHelper extends SQLiteOpenHelper{
         db.delete(TABLE_USER, COLUMN_USER_ID + " = ?",
                 new String[]{String.valueOf(user.getId())});
         db.close();
-    }*/
+    }
 
     boolean checkUser(String email) {
 
@@ -147,7 +173,6 @@ class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-
     boolean checkUser(String email, String password) {
 
 
@@ -174,5 +199,25 @@ class DatabaseHelper extends SQLiteOpenHelper{
         db.close();
         return cursorCount > 0;
 
+    }
+
+    //HELICOPTERS
+
+    void addChoppa(Helicopter heli){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_CHOPPA_NOME, heli.getNome());
+        values.put(COLUMN_CHOPPA_FABRICANTE, heli.getFabricante());
+        values.put(COLUMN_CHOPPA_CAPACIDADE, heli.getCapacidade());
+        values.put(COLUMN_CHOPPA_VELOCIDADE, heli.getVelocidade());
+        values.put(COLUMN_CHOPPA_ACELERACAO, heli.getAceleracao());
+        values.put(COLUMN_CHOPPA_CONTROLE, heli.getControle());
+        values.put(COLUMN_CHOPPA_FRENAGEM, heli.getFrenagem());
+        values.put(COLUMN_CHOPPA_MEDIA, (heli.getVelocidade() + heli.getAceleracao() + heli.getControle() + heli.getFrenagem())/4);
+        values.put(COLUMN_CHOPPA_COMPRA, heli.getPreco_compra());
+
+        db.insert(TABLE_CHOPPA, null, values);
+        db.close();
     }
 }

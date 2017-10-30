@@ -1,6 +1,8 @@
 package com.networks.test.esi;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -8,17 +10,12 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.view.View;
-
-import com.networks.test.esi.R;
-import com.networks.test.esi.InputValidation;
-import com.networks.test.esi.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
-    private NestedScrollView nestedScrollView;
+    private ConstraintLayout constraintLayout;
 
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
@@ -46,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initViews() {
 
-        nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
+        constraintLayout = (ConstraintLayout) findViewById(R.id.nestedScrollView);
 
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
@@ -107,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
         } else {
-            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(constraintLayout, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
         }
 

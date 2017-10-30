@@ -1,11 +1,45 @@
 package com.networks.test.esi;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.MenuItem;
+import android.view.View;
 
-public class InserirInventarioActivity extends AppCompatActivity {
+public class InserirInventarioActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private ConstraintLayout constraintLayout;
+
+    private TextInputLayout InputInsertName;
+    private TextInputLayout InputInsertManuf;
+    private TextInputLayout InputInsertVelocidade;
+    private TextInputLayout InputInsertFrenagem;
+    private TextInputLayout InputInsertCapacidade;
+    private TextInputLayout InputInsertAceleracao;
+    private TextInputLayout InputInsertControle;
+    private TextInputLayout InputInsertPrice;
+
+    private TextInputEditText InsertName;
+    private TextInputEditText InsertManuf;
+    private TextInputEditText InsertVelocidade;
+    private TextInputEditText InsertFrenagem;
+    private TextInputEditText InsertCapacidade;
+    private TextInputEditText InsertAceleracao;
+    private TextInputEditText InsertControle;
+    private TextInputEditText InsertPrice;
+
+
+    private AppCompatButton appCompatButtonRegister;
+    private AppCompatTextView appCompatTextViewLoginLink;
+
+    private DatabaseHelper databaseHelper;
+    private Helicopter heli;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +60,10 @@ public class InserirInventarioActivity extends AppCompatActivity {
             default:break;
         }
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
