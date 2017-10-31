@@ -32,7 +32,9 @@
         <activity android:name=".InserirInventarioActivity" />
         <activity android:name=".BuscarInventarioActivity" />
         <activity android:name=".RelatorioActivity" />
-        <activity android:name=".MostrarHeliActivity"></activity>
+        <activity android:name=".MostrarHeliActivity" />
+        <activity android:name=".RealizarVendaActivity" />
+        <activity android:name=".RealizarCompraActivity"></activity>
     </application>
 
 </manifest>

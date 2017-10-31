@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MostrarHeliActivity extends AppCompatActivity {
 
 
@@ -14,6 +16,11 @@ public class MostrarHeliActivity extends AppCompatActivity {
     private TextView capacidade_mostrar;
     private TextView velocidade_mostrar;
     private TextView preco_mostrar;
+    private TextView unidades_mostrar;
+    private TextView fabricante_mostrar;
+    private TextView controle_mostrar;
+    private TextView aceleracao_mostrar;
+    private TextView frenagem_mostrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +28,7 @@ public class MostrarHeliActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mostrar_heli);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(R.string.perfil);
+        getSupportActionBar().setTitle(R.string.busca_inventario_string);
 
         initViews();
         getValues();
@@ -40,10 +47,10 @@ public class MostrarHeliActivity extends AppCompatActivity {
     }
 
     private void initViews(){
-        nome_heli_id = (TextView) findViewById(R.id.nome_heli_id);
+        nome_heli_id = (TextView) findViewById(R.id.nome_vizu);
         capacidade_mostrar = (TextView) findViewById(R.id.capacidade_conteudo_texto);
         velocidade_mostrar = (TextView) findViewById(R.id.velocidade_conteudo_texto);
-        preco_mostrar = (TextView) findViewById(R.id.preco_conteudo_texto);
+        preco_mostrar = (TextView) findViewById(R.id.preco_vizu);
     }
 
     private void getValues(){
@@ -55,6 +62,12 @@ public class MostrarHeliActivity extends AppCompatActivity {
     }
 
     public void irVerFotoHelinho(View view) {
-
+        //startActivity(new Intent(this, PreferenciasActivity.class));
+    }
+    public void irRealizaCompra(View view) {
+        startActivity(new Intent(this, RealizarCompraActivity.class));
+    }
+    public void irRealizaVenda(View view) {
+        startActivity(new Intent(this, RealizarVendaActivity.class));
     }
 }

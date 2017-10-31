@@ -5,16 +5,10 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-
-import org.w3c.dom.Text;
 
 public class InserirInventarioActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,7 +46,7 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
         setContentView(R.layout.activity_inserir_inventario);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(R.string.inserir_inventario);
+        getSupportActionBar().setTitle(R.string.inserir_inventario_string);
         initViews();
         initListeners();
         initObjects();

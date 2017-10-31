@@ -30,7 +30,7 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         setContentView(R.layout.activity_buscar_inventario);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(R.string.busca_inventario);
+        getSupportActionBar().setTitle(R.string.busca_inventario_string);
 
         initViews();
         initListeners();
