@@ -220,4 +220,29 @@ class DatabaseHelper extends SQLiteOpenHelper{
         db.insert(TABLE_CHOPPA, null, values);
         db.close();
     }
+
+    boolean checkChoppa(String nome, String fabricante) {
+
+        String[] columns = {
+                COLUMN_CHOPPA_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selection = COLUMN_CHOPPA_NOME + " = ? AND "+ COLUMN_CHOPPA_FABRICANTE +" = ?";
+
+        String[] selectionArgs = {nome, fabricante};
+
+        Cursor cursor = db.query(TABLE_CHOPPA,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+        int cursorCount = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        return cursorCount > 0;
+    }
 }
