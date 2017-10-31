@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.design.widget.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -244,5 +245,57 @@ class DatabaseHelper extends SQLiteOpenHelper{
         db.close();
 
         return cursorCount > 0;
+    }
+
+    Helicopter searchChoppa(String nome){
+
+        Helicopter heliAchado;
+
+        String[] columns = {COLUMN_CHOPPA_NOME, COLUMN_CHOPPA_COMPRA, COLUMN_CHOPPA_VELOCIDADE, COLUMN_CHOPPA_CAPACIDADE};
+        String selection = COLUMN_CHOPPA_NOME + " = ?";
+        String[] arguments = {nome};
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_CHOPPA, columns, selection,arguments,null,null,null, null);
+
+        if(cursor.moveToFirst()){
+            heliAchado = new Helicopter();
+            heliAchado.setNome(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_NOME)));
+            heliAchado.setVelocidade(Float.parseFloat(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_VELOCIDADE))));
+            heliAchado.setCapacidade(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_CAPACIDADE))));
+            heliAchado.setPreco_compra(Float.parseFloat(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_COMPRA))));
+            cursor.close();
+        }
+        else {
+            return null;
+        }
+        return heliAchado;
+    }
+
+
+    Helicopter searchChoppa(String nome, String fabricante){
+
+        Helicopter heliAchado;
+
+        String[] columns = {COLUMN_CHOPPA_NOME, COLUMN_CHOPPA_FABRICANTE};
+        String selection = COLUMN_CHOPPA_NOME + " = ? AND " + COLUMN_CHOPPA_FABRICANTE + " = ?";
+        String[] arguments = {nome, fabricante};
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(true, TABLE_CHOPPA, columns, selection,arguments,null,null,null, null);
+
+        if(cursor.moveToFirst()){
+            heliAchado = new Helicopter();
+            heliAchado.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_ID))));
+            heliAchado.setCapacidade(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_CAPACIDADE))));
+            heliAchado.setPreco_compra(Float.parseFloat(cursor.getString(cursor.getColumnIndex(COLUMN_CHOPPA_COMPRA))));
+        }
+        else {
+            return null;
+        }
+
+        return heliAchado;
     }
 }
