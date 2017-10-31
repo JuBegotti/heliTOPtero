@@ -22,14 +22,14 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
 
     private ConstraintLayout constraintLayout;
 
-    private TextInputLayout InputInsertName;
+    /*private TextInputLayout InputInsertName;
     private TextInputLayout InputInsertManuf;
     private TextInputLayout InputInsertVelocidade;
     private TextInputLayout InputInsertFrenagem;
     private TextInputLayout InputInsertCapacidade;
     private TextInputLayout InputInsertAceleracao;
     private TextInputLayout InputInsertControle;
-    private TextInputLayout InputInsertPrice;
+    private TextInputLayout InputInsertPrice;*/
 
     private TextInputEditText InsertName;
     private TextInputEditText InsertManuf;
@@ -59,25 +59,25 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
     }
 
     private void initViews(){
-        constraintLayout = (ConstraintLayout) findViewById(R.id.insertConstraint);
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout_inserir);
 
-        InputInsertName = (TextInputLayout) findViewById(R.id.InputInsertName);
-        InputInsertManuf = (TextInputLayout) findViewById(R.id.InputInsertManuf);
-        InputInsertCapacidade = (TextInputLayout) findViewById(R.id.InputInsertCapacidade);
-        InputInsertVelocidade = (TextInputLayout) findViewById(R.id.InputInsertVelocidade);
-        InputInsertAceleracao = (TextInputLayout) findViewById(R.id.InputInsertAceleracao);
-        InputInsertControle = (TextInputLayout) findViewById(R.id.InputInsertControle);
-        InputInsertFrenagem = (TextInputLayout) findViewById(R.id.InputInsertFrenagem);
-        InputInsertPrice = (TextInputLayout) findViewById(R.id.InputInsertPrice);
+        /*InputInsertName = (TextInputLayout) findViewById(R.id.nome_inserir);
+        InputInsertManuf = (TextInputLayout) findViewById(R.id.fabricante_inserir);
+        InputInsertCapacidade = (TextInputLayout) findViewById(R.id.capacidade_inserir);
+        InputInsertVelocidade = (TextInputLayout) findViewById(R.id.velocidade_inserir);
+        InputInsertAceleracao = (TextInputLayout) findViewById(R.id.aceleracao_inserir);
+        InputInsertControle = (TextInputLayout) findViewById(R.id.controle_inserir);
+        InputInsertFrenagem = (TextInputLayout) findViewById(R.id.frenagem_inserir);
+        InputInsertPrice = (TextInputLayout) findViewById(R.id.preco_inserir);*/
 
-        InsertName = (TextInputEditText) findViewById(R.id.InsertName);
-        InsertManuf = (TextInputEditText) findViewById(R.id.InsertManuf);
-        InsertCapacidade = (TextInputEditText) findViewById(R.id.InsertCapacidade);
-        InsertVelocidade = (TextInputEditText) findViewById(R.id.InsertVelocidade);
-        InsertAceleracao = (TextInputEditText) findViewById(R.id.InsertAceleracao);
-        InsertControle = (TextInputEditText) findViewById(R.id.InsertControle);
-        InsertFrenagem = (TextInputEditText) findViewById(R.id.InsertFrenagem);
-        InsertPrice = (TextInputEditText) findViewById(R.id.InsertPrice);
+        InsertName = (TextInputEditText) findViewById(R.id.nome_inserir);
+        InsertManuf = (TextInputEditText) findViewById(R.id.fabricante_inserir);
+        InsertCapacidade = (TextInputEditText) findViewById(R.id.capacidade_inserir);
+        InsertVelocidade = (TextInputEditText) findViewById(R.id.velocidade_inserir);
+        InsertAceleracao = (TextInputEditText) findViewById(R.id.aceleracao_inserir);
+        InsertControle = (TextInputEditText) findViewById(R.id.controle_inserir);
+        InsertFrenagem = (TextInputEditText) findViewById(R.id.frenagem_inserir);
+        InsertPrice = (TextInputEditText) findViewById(R.id.preco_inserir);
 
         registerItem = (Button) findViewById(R.id.registrarItem);
     }
@@ -116,9 +116,7 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
 
             heli.setNome(InsertName.getText().toString().trim());
             heli.setFabricante(InsertManuf.getText().toString().trim());
-            int capacidade = Integer.parseInt(InsertCapacidade.getText().toString().trim());
-            System.out.println(capacidade);
-            heli.setCapacidade(capacidade);
+            heli.setCapacidade(Integer.parseInt(InsertCapacidade.getText().toString().trim()));
             heli.setVelocidade(Float.parseFloat(InsertVelocidade.getText().toString().trim()));
             heli.setAceleracao(Float.parseFloat(InsertAceleracao.getText().toString().trim()));
             heli.setFrenagem(Float.parseFloat(InsertFrenagem.getText().toString().trim()));
@@ -129,8 +127,8 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
 
             Snackbar.make(constraintLayout, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
-            //Intent intent = new Intent(this, InserirInventarioActivity.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, InserirInventarioActivity.class);
+            startActivity(intent);
 
         } else {
             Snackbar.make(constraintLayout, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
