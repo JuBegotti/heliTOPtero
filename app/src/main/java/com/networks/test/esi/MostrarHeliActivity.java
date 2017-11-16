@@ -94,6 +94,7 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
     @SuppressLint("SetTextI18n")
     private void getValues(){
 
+        // TODO foto do helinho?
         //String fotooo = "R.drawable."+getIntent().getStringExtra(BDTabelas.TabelaHelicoptero._FOTO);
 
         nome.setText(getIntent().getStringExtra(BDTabelas.TabelaHelicoptero._NOME));

@@ -17,6 +17,8 @@ import java.util.List;
 
 public class BuscarInventarioActivity extends AppCompatActivity implements View.OnClickListener{
 
+    // TODO deixar menos feiinho
+
     private Button botaoBuscar;
 
     @Override

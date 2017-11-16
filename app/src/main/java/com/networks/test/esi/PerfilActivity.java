@@ -54,6 +54,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        // TODO alterar coisas?
         switch (v.getId()) {
             case R.id.botao_alterar_foto:
                 break;
@@ -90,6 +91,9 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initViews() {
+
+        // TODO alterar foto perfil?
+
         editarFoto = (ImageButton) findViewById(R.id.botao_alterar_foto);
         editarEmail = (ImageButton) findViewById(R.id.botao_alterar_email);
         editarNascimento = (ImageButton) findViewById(R.id.botao_alterar_nascimento);
