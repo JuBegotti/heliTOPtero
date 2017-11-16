@@ -6,14 +6,15 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import com.networks.test.esi.BD.BDFuncoesUsuario;
+import com.networks.test.esi.auxiliares.InputValidation;
+import com.networks.test.esi.auxiliares.UsuarioAtivo;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private final AppCompatActivity activity = LoginActivity.this;
 
     private ConstraintLayout constraintLayout;
 
@@ -28,7 +29,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initObjects() {
-        databaseHelper = new DatabaseHelper(activity);
-        inputValidation = new InputValidation(activity);
-
+        inputValidation = new InputValidation(this);
     }
 
     @Override
@@ -75,38 +73,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 verifyFromSQLite();
                 break;
             case R.id.textViewLinkRegister:
-                // Navigate to RegisterActivity
-                Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(intentRegister);
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
         }
     }
 
     private void verifyFromSQLite() {
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_invalid_email))) {
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_invalid_email)))
             return;
-        }
-        if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_invalid_email))) {
+        if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_invalid_email)))
             return;
-        }
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_invalid_email))) {
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_invalid_email)))
             return;
-        }
 
-        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
-                , textInputEditTextPassword.getText().toString().trim())) {
-
-
-            Intent accountsIntent = new Intent(activity, InicioActivity.class);
-            accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+        if (BDFuncoesUsuario.checarUsuarioEmailSenha(textInputEditTextEmail.getText().toString().trim(),
+                textInputEditTextPassword.getText().toString().trim(), this)) {
+            UsuarioAtivo.email = textInputEditTextEmail.getText().toString().trim();
             emptyInputEditText();
-            startActivity(accountsIntent);
-
-
-        } else {
+            startActivity(new Intent(this, InicioActivity.class));
+        }
+        else {
             Snackbar.make(constraintLayout, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
-        }
+    }
 
     private void emptyInputEditText() {
         textInputEditTextEmail.setText(null);

@@ -26,15 +26,14 @@
         <activity
             android:name=".RegisterActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".PreferenciasActivity" />
-        <activity android:name=".InicioActivity" />
+        <activity android:name=".InicioActivity"/>
         <activity android:name=".PerfilActivity" />
         <activity android:name=".InserirInventarioActivity" />
         <activity android:name=".BuscarInventarioActivity" />
         <activity android:name=".RelatorioActivity" />
         <activity android:name=".MostrarHeliActivity" />
         <activity android:name=".RealizarVendaActivity" />
-        <activity android:name=".RealizarCompraActivity"></activity>
+        <activity android:name=".RealizarCompraActivity"/>
     </application>
 
 </manifest>

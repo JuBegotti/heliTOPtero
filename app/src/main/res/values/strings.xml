@@ -3,6 +3,7 @@
     <string name="app_name">heliTOPtero</string>
     <string name="zero">-</string>
     <string name="unidades_text">unidades</string>
+    <string name="buscas_string">buscar</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -20,7 +21,7 @@
     <string name="action_sign_up">Não tem uma conta? Registre-se!</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_name">Coloque o nome</string>
-    <string name="error_invalid_last_name">Coloque seu sobrenome</string>
+    <string name="error_invalid_last_name">Coloque o sobrenome</string>
     <string name="error_invalid_email">Email inválido</string>
     <string name="error_invalid_password">Senha inválida</string>
     <string name="error_incorrect_password">Senha incorreta</string>
@@ -44,8 +45,8 @@
     <string name="nome_string">Nome</string>
     <string name="sobrenome_string">Sobrenome</string>
     <string name="nascimento_string">00/00/0000</string>
-    <string name="endereco_string">Rua Nova, nº 1, Centro</string>
-    <string name="localizacao_string">00000–000, São Paulo-SP</string>
+    <string name="endereco_string">Rua Nova nº 1 - Centro</string>
+    <string name="localizacao_string">00000–000 - São Paulo-SP</string>
     <string name="cargo_string">Gerente</string>
     <string name="email_string">gerente@helitoptero.com</string>
 
@@ -68,5 +69,21 @@
 
     <!-- String vizualização dos helinhos -->
     <string name="preco_venda_valor">0</string>
+
+    <string name="nome_fabricante_digitar">Digite o nome ou o fabricante</string>
+
+    <!-- mensagens -->
+    <string name="ok_string">OK</string>
+    <string name="erro_titulo">ERRO</string>
+    <string name="estoque_vazio_string">Unidade não pode ser vendida, não há estoque.</string>
+    <string name="heli_n_encontrado_string">Helicoptero não encontrado, tente novamente.</string>
+    <string name="heli_existente_string">Helicoptero já registrado.</string>
+
+    <!-- contentDescription -->
+    <string name="logo_description">Logo</string>
+    <string name="foto_perfil_description">Foto do perfil</string>
+    <string name="foto_helinho_description">Foto do helicoptero</string>
+    <string name="moneyy">$</string>
+    <string name="botao_description">botao</string>
 
 </resources>

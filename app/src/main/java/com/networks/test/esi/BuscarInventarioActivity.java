@@ -2,27 +2,22 @@ package com.networks.test.esi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
+import com.networks.test.esi.BD.BDFuncoesHeli;
+import com.networks.test.esi.BD.Helicoptero;
+import com.networks.test.esi.auxiliares.ListViewHeli;
+import com.networks.test.esi.auxiliares.Mensagens;
+import com.networks.test.esi.auxiliares.PutExtras;
+import java.util.List;
 
 public class BuscarInventarioActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private final AppCompatActivity activity = BuscarInventarioActivity.this;
-
-    private ConstraintLayout constraintLayout;
-    private android.widget.SearchView searchView;
-    private Button buscaItem;
-
-    private DatabaseHelper databaseHelper;
-    private Helicopter heli;
-
+    private Button botaoBuscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +27,22 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(R.string.busca_inventario_string);
 
-        initViews();
-        initListeners();
-        initObjects();
+        botaoBuscar = (Button) findViewById(R.id.botao_busca);
+        botaoBuscar.setOnClickListener(this);
+
+        List<Helicoptero> helinhos = BDFuncoesHeli.listaHelinhos(this);
+        final ListView todosHelinhos = (ListView) findViewById(R.id.buscaInve_listView);
+        ListViewHeli adapter = new ListViewHeli(helinhos, this);
+        todosHelinhos.setAdapter(adapter);
+        todosHelinhos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Helicoptero helinho = (Helicoptero) todosHelinhos.getItemAtPosition(position);
+                Intent intent = new Intent(todosHelinhos.getContext(), MostrarHeliActivity.class);
+                PutExtras.putExtrasHelinho(helinho,intent);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -49,51 +57,21 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         return true;
     }
 
-    private void initViews(){
-        constraintLayout = (ConstraintLayout) findViewById(R.id.constraint_busca);
-        buscaItem = (Button) findViewById(R.id.botao_busca);
-        searchView = (android.widget.SearchView) findViewById(R.id.searchView);
+    @Override
+    public void onClick(View view) {
+        android.widget.SearchView searchView = (android.widget.SearchView) findViewById(R.id.searchView);
+        String entrada = searchView.getQuery().toString().trim();
+        Helicoptero helinho = BDFuncoesHeli.buscaHelinhoNome(this,entrada);
+        if(helinho==null) BDFuncoesHeli.buscaHelinhoFabricante(this,entrada);
+        if(helinho==null) Mensagens.mensagem(this,R.string.erro_titulo, R.string.heli_n_encontrado_string);
+        else{
+            Intent intent = new Intent(this, MostrarHeliActivity.class);
+            PutExtras.putExtrasHelinho(helinho, intent);
+            startActivity(intent);
+        }
     }
 
     private void initListeners(){
-        buscaItem.setOnClickListener(this);
+        botaoBuscar.setOnClickListener(this);
     }
-
-    private void initObjects(){
-        databaseHelper = new DatabaseHelper(activity);
-        heli = new Helicopter();
-    }
-
-    public void irVerHelinho(View view) {
-        Intent mostrar = new Intent(this, MostrarHeliActivity.class);
-        mostrar.putExtra("HELI_ID", heli.getId());
-        mostrar.putExtra("HELI_NOME", heli.getNome());
-        mostrar.putExtra("HELI_PRECO", heli.getPreco_compra());
-        mostrar.putExtra("HELI_CAP", heli.getCapacidade());
-        mostrar.putExtra("HELI_VEL", heli.getVelocidade());
-        startActivity(mostrar);
-    }
-
-    @Override
-    public void onClick(View v) {
-        searchSQL(v);
-    }
-
-    private void searchSQL(View v){
-
-        String nome = searchView.getQuery().toString().trim();
-
-        heli = databaseHelper.searchChoppa(nome);
-
-        if(heli == null){
-            Snackbar.make(constraintLayout, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
-            finish();
-        }
-        else{
-            irVerHelinho(v);
-        }
-
-
-    }
-
 }

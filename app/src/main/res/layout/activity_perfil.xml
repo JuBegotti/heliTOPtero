@@ -36,6 +36,7 @@
 
                 <ImageView
                     android:id="@+id/imageView"
+                    android:contentDescription="@string/foto_perfil_description"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_margin="8dp"
@@ -46,6 +47,7 @@
 
                 <ImageButton
                     android:id="@+id/botao_alterar_foto"
+                    android:contentDescription="@string/botao_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -106,12 +108,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
+                android:background="@color/cinzinha"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/container_cargo">
 
                 <TextView
-                    android:id="@+id/email_e_id"
+                    android:id="@+id/email_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -123,6 +126,7 @@
 
                 <ImageButton
                     android:id="@+id/botao_alterar_email"
+                    android:contentDescription="@string/botao_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -154,6 +158,7 @@
 
                 <ImageButton
                     android:id="@+id/botao_alterar_nascimento"
+                    android:contentDescription="@string/botao_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -167,6 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
+                android:background="@color/cinzinha"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/container_idade">
@@ -184,6 +190,7 @@
 
                 <ImageButton
                     android:id="@+id/botao_alterar_endereco"
+                    android:contentDescription="@string/botao_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -215,6 +222,7 @@
 
                 <ImageButton
                     android:id="@+id/botao_alterar_localizacao"
+                    android:contentDescription="@string/botao_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
