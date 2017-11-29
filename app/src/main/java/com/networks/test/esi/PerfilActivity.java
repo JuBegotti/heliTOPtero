@@ -7,11 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.networks.test.esi.BD.BDFuncoesUsuario;
 import com.networks.test.esi.BD.BDTabelas;
+import com.networks.test.esi.BD.Usuario;
+import com.networks.test.esi.auxiliares.UsuarioAtivo;
 
 public class PerfilActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String id;
+    private int id;
+
+    Usuario usuario;
 
     private TextView nome;
     private TextView sobrenome;
@@ -34,6 +40,8 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(R.string.perfil_string);
+
+        usuario = BDFuncoesUsuario.buscaUsuario(UsuarioAtivo.email,this);
 
         initViews();
         getValues();
@@ -80,14 +88,14 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void getValues() {
-        id = getIntent().getStringExtra(BDTabelas.TabelaUsuario._ID);
-        nome.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._NOME));
-        sobrenome.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._SOBRENOME));
-        funcao.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._FUNCAO));
-        email.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._EMAIL));
-        nascimento.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._DATA_NASCIMENTO));
-        endereco.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._ENDERECO));
-        localizacao.setText(getIntent().getStringExtra(BDTabelas.TabelaUsuario._CEP_CIDADE_ESTADO));
+        id = usuario.getId();
+        nome.setText(usuario.getNome());
+        sobrenome.setText(usuario.getSobrenome());
+        funcao.setText(usuario.getFuncao());
+        email.setText(usuario.getEmail());
+        nascimento.setText(usuario.getNascimento());
+        endereco.setText(usuario.getEndereco());
+        localizacao.setText(usuario.getCep_cidade_estado());
     }
 
     private void initViews() {

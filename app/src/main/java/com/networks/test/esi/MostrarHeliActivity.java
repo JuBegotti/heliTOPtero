@@ -9,10 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.networks.test.esi.BD.BD;
+import com.networks.test.esi.BD.BDFuncoesHeli;
 import com.networks.test.esi.BD.BDTabelas;
+import com.networks.test.esi.BD.Helicoptero;
 import com.networks.test.esi.auxiliares.Mensagens;
 
 public class MostrarHeliActivity extends AppCompatActivity implements View.OnClickListener{
+
+    Helicoptero helinho;
 
     private TextView nome;
     private TextView capacidade;
@@ -35,6 +41,8 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(R.string.busca_inventario_string);
+
+        helinho = BDFuncoesHeli.buscaHelinhoNome(this,getIntent().getStringExtra("nome"));
 
         initViews();
         getValues();
@@ -97,16 +105,16 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
         // TODO foto do helinho?
         //String fotooo = "R.drawable."+getIntent().getStringExtra(BDTabelas.TabelaHelicoptero._FOTO);
 
-        nome.setText(getIntent().getStringExtra(BDTabelas.TabelaHelicoptero._NOME));
-        fabricante.setText(getIntent().getStringExtra(BDTabelas.TabelaHelicoptero._FABRICANTE));
-        capacidade.setText(Integer.toString(getIntent().getIntExtra(BDTabelas.TabelaHelicoptero._CAPACIDADE, 0)));
-        velocidade.setText(Float.toString(getIntent().getFloatExtra(BDTabelas.TabelaHelicoptero._VELOCIDADE, 0)));
-        precoVenda.setText(Float.toString(getIntent().getFloatExtra(BDTabelas.TabelaHelicoptero._PRECO_VENDA, 0)));
-        controle.setText(Float.toString(getIntent().getFloatExtra(BDTabelas.TabelaHelicoptero._CONTROLE, 0)));
-        aceleracao.setText(Float.toString(getIntent().getFloatExtra(BDTabelas.TabelaHelicoptero._ACELERACAO, 0)));
-        frenagem.setText(Float.toString(getIntent().getFloatExtra(BDTabelas.TabelaHelicoptero._FRENAGEM, 0)));
-        unidades.setText(Integer.toString(getIntent().getIntExtra(BDTabelas.TabelaHelicoptero._ESTOQUE, 0)));
-        unidadesInt = getIntent().getIntExtra(BDTabelas.TabelaHelicoptero._ESTOQUE,0);
-        //foto.setImageDrawable(R.drawable.);
+        nome.setText(helinho.getNome());
+        fabricante.setText(helinho.getFabricante());
+        capacidade.setText(Integer.toString(helinho.getCapacidade()));
+        velocidade.setText(Float.toString(helinho.getVelocidade()));
+        precoVenda.setText(Float.toString(helinho.getPrecoVendaSugerido()));
+        controle.setText(Float.toString(helinho.getControle()));
+        aceleracao.setText(Float.toString(helinho.getAceleracao()));
+        frenagem.setText(Float.toString(helinho.getFrenagem()));
+        unidades.setText(Integer.toString(helinho.getUnidades()));
+        unidadesInt = helinho.getUnidades();
+        //foto.setImageDrawable(getResources().getDrawable(R.drawable.ah64apache));
     }
 }

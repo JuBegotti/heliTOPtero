@@ -8,14 +8,14 @@ package com.networks.test.esi.BD;
 public class Usuario {
 
     private int id;
-    private String nome;
-    private String sobrenome;
-    private String nascimento;
-    private String endereco;
-    private String cep_cidade_estado;
-    private String email;
-    private String senha;
-    private String funcao;
+    private final String nome;
+    private final String sobrenome;
+    private final String nascimento;
+    private final String endereco;
+    private final String cep_cidade_estado;
+    private final String email;
+    private final String senha;
+    private final String funcao;
 
     public Usuario(String nome, String sobrenome, String funcao, String nascimento, String endereco,
                    String cep_cidade_estado, String email, String senha){
@@ -50,19 +50,31 @@ public class Usuario {
         return nome;
     }
 
-    public String getSobrenome() { return sobrenome; }
+    public String getSobrenome() {
+        return sobrenome;
+    }
 
-    public String getNascimento(){ return nascimento; }
+    public String getNascimento(){
+        return nascimento;
+    }
 
-    public String getEndereco(){ return endereco; }
+    public String getEndereco(){
+        return endereco;
+    }
 
-    public String getCep_cidade_estado(){ return cep_cidade_estado; }
+    public String getCep_cidade_estado(){
+        return cep_cidade_estado;
+    }
 
     public String getEmail() {
         return email;
     }
 
-    String getSenha() { return senha; }
+    String getSenha() {
+        return senha;
+    }
 
-    public String getFuncao() { return funcao; }
+    public String getFuncao() {
+        return funcao;
+    }
 }

@@ -7,17 +7,17 @@ package com.networks.test.esi.BD;
 
 public class Helicoptero {
 
-    private String nome;
-    private String fabricante;
-    private int capacidade;
-    private float velocidade;
-    private float aceleracao;
-    private float controle;
-    private float frenagem;
-    private float precoCompra;
-    private float precoVendaSugerido;
-    private int unidades;
-    private String foto;
+    private final String nome;
+    private final String fabricante;
+    private final int capacidade;
+    private final float velocidade;
+    private final float aceleracao;
+    private final float controle;
+    private final float frenagem;
+    private final float precoCompra;
+    private final float precoVendaSugerido;
+    private final int unidades;
+    private final String foto;
 
     public Helicoptero(String nome, String fabricante, float precoCompra, int capacidade,
                        float velocidade, float aceleracao, float controle, float frenagem){
@@ -77,11 +77,19 @@ public class Helicoptero {
         return frenagem;
     }
 
-    public float getPrecoCompra() { return precoCompra;}
+    public float getPrecoCompra() {
+        return precoCompra;
+    }
 
-    public int getUnidades() { return unidades; }
+    public int getUnidades() {
+        return unidades;
+    }
 
-    public float getPrecoVendaSugerido() { return precoVendaSugerido; }
+    public float getPrecoVendaSugerido() {
+        return precoVendaSugerido;
+    }
 
-    public String getFoto() { return foto; }
+    public String getFoto() {
+        return foto;
+    }
 }

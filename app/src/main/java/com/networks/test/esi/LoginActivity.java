@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             UsuarioAtivo.email = textInputEditTextEmail.getText().toString().trim();
             emptyInputEditText();
             startActivity(new Intent(this, InicioActivity.class));
+            LoginActivity.this.finish();
         }
         else {
             Snackbar.make(constraintLayout, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();

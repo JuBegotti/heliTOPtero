@@ -12,12 +12,11 @@ import com.networks.test.esi.BD.BDFuncoesHeli;
 import com.networks.test.esi.BD.Helicoptero;
 import com.networks.test.esi.auxiliares.ListViewHeli;
 import com.networks.test.esi.auxiliares.Mensagens;
-import com.networks.test.esi.auxiliares.PutExtras;
 import java.util.List;
 
 public class BuscarInventarioActivity extends AppCompatActivity implements View.OnClickListener{
 
-    // TODO deixar menos feiinho
+    // TODO deixar menos feiinhoo
 
     private Button botaoBuscar;
 
@@ -36,12 +35,12 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         final ListView todosHelinhos = (ListView) findViewById(R.id.buscaInve_listView);
         ListViewHeli adapter = new ListViewHeli(helinhos, this);
         todosHelinhos.setAdapter(adapter);
+
         todosHelinhos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Helicoptero helinho = (Helicoptero) todosHelinhos.getItemAtPosition(position);
                 Intent intent = new Intent(todosHelinhos.getContext(), MostrarHeliActivity.class);
-                PutExtras.putExtrasHelinho(helinho,intent);
+                intent.putExtra("nome", ((Helicoptero) todosHelinhos.getItemAtPosition(position)).getNome());
                 startActivity(intent);
             }
         });
@@ -52,7 +51,6 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         switch (item.getItemId()) {
             case android.R.id.home:
                 startActivity(new Intent(this, InicioActivity.class));
-                finishAffinity();
                 break;
             default:break;
         }
@@ -68,12 +66,8 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
         if(helinho==null) Mensagens.mensagem(this,R.string.erro_titulo, R.string.heli_n_encontrado_string);
         else{
             Intent intent = new Intent(this, MostrarHeliActivity.class);
-            PutExtras.putExtrasHelinho(helinho, intent);
+            intent.putExtra("nome", helinho.getNome());
             startActivity(intent);
         }
-    }
-
-    private void initListeners(){
-        botaoBuscar.setOnClickListener(this);
     }
 }

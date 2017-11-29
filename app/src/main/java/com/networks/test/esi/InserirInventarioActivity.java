@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.networks.test.esi.BD.BDFuncoesHeli;
 import com.networks.test.esi.BD.Helicoptero;
 import com.networks.test.esi.auxiliares.Mensagens;
-import com.networks.test.esi.auxiliares.PutExtras;
 
 public class InserirInventarioActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,7 +68,7 @@ public class InserirInventarioActivity extends AppCompatActivity implements View
             BDFuncoesHeli.addHelinho(this,helinho);
             Snackbar.make(constraintLayout, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             Intent intent = new Intent(this, MostrarHeliActivity.class);
-            PutExtras.putExtrasHelinho(helinho,intent);
+            intent.putExtra("nome",helinho.getNome());
             startActivity(intent);
         }
         else Mensagens.mensagem(this,R.string.erro_titulo,R.string.heli_existente_string);
