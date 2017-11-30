@@ -40,22 +40,25 @@ public class BuscarClienteActivity extends AppCompatActivity implements View.OnC
         initListeners();
 
         List<Cliente> clientes = BDFuncoesCliente.listaCliente(this);
-        final ListView todosClientes = (ListView) findViewById(R.id.buscarCliente_listview);
-        ListViewTodas adapter = new ListViewTodas(null,clientes, null, this);
-        todosClientes.setAdapter(adapter);
+        if(clientes!=null){
+            final ListView todosClientes = (ListView) findViewById(R.id.buscarCliente_listview);
+            ListViewTodas adapter = new ListViewTodas(null,clientes, null, this);
+            todosClientes.setAdapter(adapter);
 
-        todosClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            todosClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent;
-                if(compraVenda.equals("vender")) intent = new Intent(todosClientes.getContext(), RealizarVendaActivity.class);
-                else intent = new Intent(todosClientes.getContext(), RealizarCompraActivity.class);
-                intent.putExtra("cliente", ((Cliente) todosClientes.getItemAtPosition(position)).getNome());
-                intent.putExtra("nome",nome);
-                intent.putExtra("ComprarVender",compraVenda);
-                startActivity(intent);
-            }
-        });
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent;
+                    if(compraVenda.equals("vender")) intent = new Intent(todosClientes.getContext(), RealizarVendaActivity.class);
+                    else intent = new Intent(todosClientes.getContext(), RealizarCompraActivity.class);
+                    intent.putExtra("cliente", ((Cliente) todosClientes.getItemAtPosition(position)).getNome());
+                    intent.putExtra("nome",nome);
+                    intent.putExtra("ComprarVender",compraVenda);
+                    startActivity(intent);
+                }
+            });
+        }
+
     }
 
     @Override

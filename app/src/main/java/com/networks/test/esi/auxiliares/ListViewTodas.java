@@ -35,14 +35,14 @@ public class ListViewTodas extends BaseAdapter {
     @Override
     public int getCount() {
         if(clientes==null && transacoes==null)  return helinhos.size();
-        if(helinhos==null && clientes==null) return transacoes.size();
+        else if(helinhos==null && clientes==null) return transacoes.size();
         else  return clientes.size();
     }
 
     @Override
     public Object getItem(int i) {
         if(clientes==null && transacoes==null) return helinhos.get(i);
-        if(helinhos==null && clientes==null) return transacoes.get(i);
+        else if(helinhos==null && clientes==null) return transacoes.get(i);
         else return clientes.get(i);
     }
 
