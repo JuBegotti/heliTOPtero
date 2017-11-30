@@ -66,6 +66,10 @@
     <!-- Strings venda -->
     <string name="cliente_string">Cliente</string>
     <string name="quantidade_string">Quantidade</string>
+    <string name="selecione_string">Selecione</string>
+    <string name="realizando_compra_string">Realizando a compra de:</string>
+    <string name="realizando_venda_string">Realizando a venda de:</string>
+    <string name="preco_sugerido_string">P. sugerido</string>
 
     <!-- String vizualização dos helinhos -->
     <string name="preco_venda_valor">0</string>
