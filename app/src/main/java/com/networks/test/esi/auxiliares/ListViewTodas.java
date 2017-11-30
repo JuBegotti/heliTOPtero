@@ -72,9 +72,8 @@ public class ListViewTodas extends BaseAdapter {
             if(transacao.getCompra_venda()==1) nome.setText("Compra");
             else nome.setText("Venda");
             nome.setTextSize(12);
-            data.setText(transacao.getData());
-            data.setTextSize(12);
             nemSei.setText(transacao.getNomeHelinho());
+            nemSei.setTextColor(R.color.corDestaque);
             fabricante.setText(transacao.getNomeFabricante());
         }
         else {

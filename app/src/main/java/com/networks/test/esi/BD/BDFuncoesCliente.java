@@ -82,4 +82,55 @@ public class BDFuncoesCliente {
         return cliente;
     }
 
+    public static void updateUsuarioEmail(Context context, Usuario usuario, String email) {
+        BD bd = new BD(context);
+        SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(BDTabelas.TabelaUsuario._EMAIL, email);
+
+        sqLiteDatabase.update(BDTabelas.TabelaUsuario.USUARIO, values,
+                BDTabelas.TabelaUsuario._EMAIL+ " = ?",
+                new String[]{usuario.getNome()});
+        sqLiteDatabase.close();
+    }
+
+    public static void updateUsuarioNascimento(Context context, Usuario usuario, String nascimento) {
+        BD bd = new BD(context);
+        SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(BDTabelas.TabelaUsuario._DATA_NASCIMENTO, nascimento);
+
+        sqLiteDatabase.update(BDTabelas.TabelaUsuario.USUARIO, values,
+                BDTabelas.TabelaUsuario._DATA_NASCIMENTO+ " = ?",
+                new String[]{usuario.getNome()});
+        sqLiteDatabase.close();
+    }
+
+    public static void updateUsuarioEndereco(Context context, Usuario usuario, String endereco) {
+        BD bd = new BD(context);
+        SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(BDTabelas.TabelaUsuario._ENDERECO, endereco);
+
+        sqLiteDatabase.update(BDTabelas.TabelaUsuario.USUARIO, values,
+                BDTabelas.TabelaUsuario._ENDERECO+ " = ?",
+                new String[]{usuario.getNome()});
+        sqLiteDatabase.close();
+    }
+
+    public static void updateUsuarioLocalizacao(Context context, Usuario usuario, String localizacao) {
+        BD bd = new BD(context);
+        SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(BDTabelas.TabelaUsuario._CEP_CIDADE_ESTADO, localizacao);
+
+        sqLiteDatabase.update(BDTabelas.TabelaUsuario.USUARIO, values,
+                BDTabelas.TabelaUsuario._CEP_CIDADE_ESTADO+ " = ?",
+                new String[]{usuario.getNome()});
+        sqLiteDatabase.close();
+    }
 }

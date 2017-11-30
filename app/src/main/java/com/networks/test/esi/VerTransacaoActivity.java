@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.networks.test.esi.BD.BDFuncoesTransacoes;
 import com.networks.test.esi.BD.Transacoes;
 
+import java.util.Date;
+
 public class VerTransacaoActivity extends AppCompatActivity {
 
     Transacoes transacao;

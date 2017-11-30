@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.networks.test.esi.BD.BD;
@@ -33,6 +34,12 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
     private ImageButton foto;
     private Button compra;
     private Button venda;
+
+    private ProgressBar progCapacidade;
+    private ProgressBar progVelocidade;
+    private ProgressBar progControle;
+    private ProgressBar progAceleracao;
+    private ProgressBar progFrenagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +106,12 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
         foto = (ImageButton) findViewById(R.id.helinho_imagem);
         compra = (Button) findViewById(R.id.realizar_compra);
         venda = (Button) findViewById(R.id.realizar_venda);
+
+        progCapacidade = (ProgressBar) findViewById(R.id.progressBar);
+        progVelocidade = (ProgressBar) findViewById(R.id.progressBar1);
+        progControle = (ProgressBar) findViewById(R.id.progressBar2);
+        progAceleracao = (ProgressBar) findViewById(R.id.progressBar3);
+        progFrenagem = (ProgressBar) findViewById(R.id.progressBar4);
     }
 
     private void initListeners(){
@@ -124,5 +137,11 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
         unidades.setText(Integer.toString(helinho.getUnidades()));
         unidadesInt = helinho.getUnidades();
         //foto.setImageDrawable(getResources().getDrawable(R.drawable.ah64apache));
+
+        progCapacidade.setProgress(helinho.getCapacidade());
+        progVelocidade.setProgress((int)helinho.getVelocidade());
+        progControle.setProgress((int)helinho.getControle());
+        progAceleracao.setProgress((int)helinho.getAceleracao());
+        progFrenagem.setProgress((int)helinho.getFrenagem());
     }
 }

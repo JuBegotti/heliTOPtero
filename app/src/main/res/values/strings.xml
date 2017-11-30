@@ -104,5 +104,7 @@
     <string name="valor_total_string">Valor total</string>
     <string name="venda">Venda</string>
     <string name="compra">Compra</string>
+    <string name="selecine_transacao_string">Seleione a compra ou venda para mais informações</string>
+    <string name="editar">Editar</string>
 
 </resources>

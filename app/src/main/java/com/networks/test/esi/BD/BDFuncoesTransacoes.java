@@ -24,7 +24,7 @@ public class BDFuncoesTransacoes {
         initialValues.put(BDTabelas.TabelaTransacoes._NOME_HELINHO, transacoes.getNomeHelinho());
         initialValues.put(BDTabelas.TabelaTransacoes._NOME_FABRICANTE, transacoes.getNomeFabricante());
         initialValues.put(BDTabelas.TabelaTransacoes._COMPRA_VENDA, transacoes.getCompra_venda());
-        initialValues.put(BDTabelas.TabelaTransacoes._DATA, transacoes.getData());
+        initialValues.put(BDTabelas.TabelaTransacoes._DATA, transacoes.getData().toString());
         initialValues.put(BDTabelas.TabelaTransacoes._CLIENTE, transacoes.getCliente());
         initialValues.put(BDTabelas.TabelaTransacoes._FUNCIONARIO, transacoes.getFuncionario());
         initialValues.put(BDTabelas.TabelaTransacoes._QUANTIDADE, transacoes.getQuantidade());
