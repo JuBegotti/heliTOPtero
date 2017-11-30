@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.networks.test.esi.BD.BDFuncoesHeli;
 import com.networks.test.esi.BD.Helicoptero;
-import com.networks.test.esi.auxiliares.ListViewHeli;
+import com.networks.test.esi.auxiliares.ListViewTodas;
 import com.networks.test.esi.auxiliares.Mensagens;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
 
         List<Helicoptero> helinhos = BDFuncoesHeli.listaHelinhos(this);
         final ListView todosHelinhos = (ListView) findViewById(R.id.buscaInve_listView);
-        ListViewHeli adapter = new ListViewHeli(helinhos,null, this);
+        ListViewTodas adapter = new ListViewTodas(helinhos,null, null, this);
         todosHelinhos.setAdapter(adapter);
 
         todosHelinhos.setOnItemClickListener(new AdapterView.OnItemClickListener() {

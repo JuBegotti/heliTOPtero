@@ -1,5 +1,6 @@
 package com.networks.test.esi;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -88,9 +89,10 @@ public class RealizarCompraActivity extends AppCompatActivity implements View.On
                     pc = Integer.parseInt(pcS);
                 }
                 if(clienteString!=null && pc!=0 && qt!=0){
-                    Transacoes transacoes = new Transacoes(nomeString, fabricante.toString(), 1,
+                    Transacoes transacoes = new Transacoes(nomeString, helinho.getFabricante(), 1,
                             new Date().toString(), clienteString, UsuarioAtivo.email, qt, pc);
                     BDFuncoesTransacoes.addTransacao(this,transacoes);
+                    BDFuncoesHeli.updateHelinhoEstoque(this, helinho,helinho.getUnidades()+qt);
                     startActivity(new Intent(this, InicioActivity.class));
                 }
                 else Mensagens.mensagem(this, R.string.erro_titulo,R.string.parametros_incorretos_string);

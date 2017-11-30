@@ -67,14 +67,14 @@ public class BDFuncoesTransacoes {
         return transacoes;
     }
 
-    public static Transacoes buscaTransacoes(Context context, int id){
+    public static Transacoes buscaTransacoes(Context context, String id){
         Transacoes transacao = null;
 
         BD bd = new BD(context);
         SQLiteDatabase sqLiteDatabase = bd.getReadableDatabase();
 
         Cursor cursor = sqLiteDatabase.rawQuery(
-                "SELECT * FROM "+ BDTabelas.TabelaTransacoes.TRANSACOES + " WHERE "+ BDTabelas.TabelaTransacoes._ID + " = " + id, null);
+                "SELECT * FROM "+ BDTabelas.TabelaTransacoes.TRANSACOES + " WHERE "+ BDTabelas.TabelaTransacoes._DATA + " = '" + id + "'", null);
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();

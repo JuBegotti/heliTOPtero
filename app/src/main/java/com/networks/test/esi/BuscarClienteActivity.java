@@ -1,5 +1,6 @@
 package com.networks.test.esi;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.ListView;
 
 import com.networks.test.esi.BD.BDFuncoesCliente;
 import com.networks.test.esi.BD.Cliente;
-import com.networks.test.esi.auxiliares.ListViewHeli;
+import com.networks.test.esi.auxiliares.ListViewTodas;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,14 +41,14 @@ public class BuscarClienteActivity extends AppCompatActivity implements View.OnC
 
         List<Cliente> clientes = BDFuncoesCliente.listaCliente(this);
         final ListView todosClientes = (ListView) findViewById(R.id.buscarCliente_listview);
-        ListViewHeli adapter = new ListViewHeli(null,clientes, this);
+        ListViewTodas adapter = new ListViewTodas(null,clientes, null, this);
         todosClientes.setAdapter(adapter);
 
         todosClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-                if(Objects.equals(compraVenda, "venda")) intent = new Intent(todosClientes.getContext(), RealizarVendaActivity.class);
+                if(compraVenda.equals("vender")) intent = new Intent(todosClientes.getContext(), RealizarVendaActivity.class);
                 else intent = new Intent(todosClientes.getContext(), RealizarCompraActivity.class);
                 intent.putExtra("cliente", ((Cliente) todosClientes.getItemAtPosition(position)).getNome());
                 intent.putExtra("nome",nome);
@@ -98,7 +99,7 @@ public class BuscarClienteActivity extends AppCompatActivity implements View.OnC
     }
 
     private void getValues(){
-        nome = getIntent().getExtras().toString();
-        compraVenda = getIntent().getExtras().toString();
+        nome = getIntent().getStringExtra("nome");
+        compraVenda = getIntent().getStringExtra("ComprarVender");
     }
 }

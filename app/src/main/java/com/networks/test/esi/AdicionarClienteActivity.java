@@ -1,5 +1,6 @@
 package com.networks.test.esi;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -99,7 +100,7 @@ public class AdicionarClienteActivity extends AppCompatActivity implements View.
     }
 
     private void getValues(){
-        nome = getIntent().getExtras().toString();
-        compraVenda = getIntent().getExtras().toString();
+        nome = getIntent().getStringExtra("nome");
+        compraVenda = getIntent().getStringExtra("ComprarVender");
     }
 }

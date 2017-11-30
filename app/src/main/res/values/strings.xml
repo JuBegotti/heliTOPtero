@@ -98,5 +98,11 @@
     <string name="cpf_cnpj_string">CPF/CNPJ</string>
     <string name="telefone_string">Telefone</string>
     <string name="cliente_existente_string">Cliente já registrado</string>
+    <string name="vendedor_string">Vendedor</string>
+    <string name="data_string">Data</string>
+    <string name="preco_string">Preço</string>
+    <string name="valor_total_string">Valor total</string>
+    <string name="venda">Venda</string>
+    <string name="compra">Compra</string>
 
 </resources>

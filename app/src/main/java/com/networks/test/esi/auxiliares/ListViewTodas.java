@@ -9,35 +9,40 @@ import android.widget.TextView;
 
 import com.networks.test.esi.BD.Cliente;
 import com.networks.test.esi.BD.Helicoptero;
+import com.networks.test.esi.BD.Transacoes;
 import com.networks.test.esi.R;
 import java.util.List;
 
 /**
  * Created by ju on 13/11/17.
- * class ListViewHeli
+ * class ListViewTodas
  */
 
-public class ListViewHeli extends BaseAdapter {
+public class ListViewTodas extends BaseAdapter {
 
     private final List<Helicoptero> helinhos;
+    private final List<Transacoes> transacoes;
     private final Activity act;
     private final List<Cliente> clientes;
 
-    public ListViewHeli(List<Helicoptero> helinhos, List<Cliente> clientes, Activity act) {
+    public ListViewTodas(List<Helicoptero> helinhos, List<Cliente> clientes, List<Transacoes> transacoes, Activity act) {
         this.helinhos = helinhos;
         this.clientes = clientes;
+        this.transacoes = transacoes;
         this.act = act;
     }
 
     @Override
     public int getCount() {
-        if(clientes==null)  return helinhos.size();
-        else return clientes.size();
+        if(clientes==null && transacoes==null)  return helinhos.size();
+        if(helinhos==null && clientes==null) return transacoes.size();
+        else  return clientes.size();
     }
 
     @Override
     public Object getItem(int i) {
-        if(clientes==null) return helinhos.get(i);
+        if(clientes==null && transacoes==null) return helinhos.get(i);
+        if(helinhos==null && clientes==null) return transacoes.get(i);
         else return clientes.get(i);
     }
 
@@ -54,11 +59,23 @@ public class ListViewHeli extends BaseAdapter {
 
         TextView nome = (TextView) view.findViewById(R.id.listView_nome);
         TextView fabricante = (TextView) view.findViewById(R.id.listView_fabricante);
+        TextView data = (TextView) view.findViewById(R.id.listView_data);
+        TextView nemSei = (TextView) view.findViewById(R.id.listView_nomee);
 
-        if(clientes==null){
+        if(clientes==null && transacoes==null){
             Helicoptero helinho = helinhos.get(i);
             nome.setText(helinho.getNome());
             fabricante.setText(helinho.getFabricante());
+        }
+        else if(helinhos==null && clientes==null){
+            Transacoes transacao = transacoes.get(i);
+            if(transacao.getCompra_venda()==1) nome.setText("Compra");
+            else nome.setText("Venda");
+            nome.setTextSize(12);
+            data.setText(transacao.getData());
+            data.setTextSize(12);
+            nemSei.setText(transacao.getNomeHelinho());
+            fabricante.setText(transacao.getNomeFabricante());
         }
         else {
             Cliente cliente = clientes.get(i);

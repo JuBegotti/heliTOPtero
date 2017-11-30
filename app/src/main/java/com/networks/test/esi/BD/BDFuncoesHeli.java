@@ -121,4 +121,17 @@ public class BDFuncoesHeli {
         sqLiteDatabase.close();
         return helinho;
     }
+
+    public static void updateHelinhoEstoque(Context context, Helicoptero helicoptero, int novaQt) {
+        BD bd = new BD(context);
+        SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(BDTabelas.TabelaHelicoptero._ESTOQUE, novaQt);
+
+        sqLiteDatabase.update(BDTabelas.TabelaHelicoptero.HELICOPTERO, values,
+                BDTabelas.TabelaHelicoptero._NOME+ " = ?",
+                new String[]{helicoptero.getNome()});
+        sqLiteDatabase.close();
+    }
 }
