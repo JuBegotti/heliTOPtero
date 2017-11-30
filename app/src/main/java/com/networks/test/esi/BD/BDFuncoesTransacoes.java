@@ -21,6 +21,8 @@ public class BDFuncoesTransacoes {
         SQLiteDatabase sqLiteDatabase = bd.getWritableDatabase();
 
         ContentValues initialValues = new ContentValues();
+        initialValues.put(BDTabelas.TabelaTransacoes._NOME_HELINHO, transacoes.getNomeHelinho());
+        initialValues.put(BDTabelas.TabelaTransacoes._NOME_FABRICANTE, transacoes.getNomeFabricante());
         initialValues.put(BDTabelas.TabelaTransacoes._COMPRA_VENDA, transacoes.getCompra_venda());
         initialValues.put(BDTabelas.TabelaTransacoes._DATA, transacoes.getData());
         initialValues.put(BDTabelas.TabelaTransacoes._CLIENTE, transacoes.getCliente());
@@ -48,6 +50,8 @@ public class BDFuncoesTransacoes {
             do {
                 Transacoes transacao = new Transacoes(
                         cursor.getInt(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._NOME_HELINHO)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._NOME_FABRICANTE)),
                         cursor.getInt(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._COMPRA_VENDA)),
                         cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._DATA)),
                         cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._CLIENTE)),
@@ -76,6 +80,8 @@ public class BDFuncoesTransacoes {
             cursor.moveToFirst();
                 transacao = new Transacoes(
                     cursor.getInt(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._NOME_HELINHO)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._NOME_FABRICANTE)),
                     cursor.getInt(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._COMPRA_VENDA)),
                     cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._DATA)),
                     cursor.getString(cursor.getColumnIndexOrThrow(BDTabelas.TabelaTransacoes._CLIENTE)),

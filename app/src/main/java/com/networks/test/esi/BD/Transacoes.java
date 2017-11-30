@@ -10,6 +10,8 @@ import java.util.Calendar;
 public class Transacoes {
 
     private final int id;
+    private final String nomeHelinho;
+    private final String nomeFabricante;
     private final int compra_venda;
     private final String data;
     private final String cliente;
@@ -17,8 +19,11 @@ public class Transacoes {
     private final int quantidade;
     private final Float preco;
 
-    Transacoes(int id, int compra_venda, String data, String cliente, String funcionario, int quantidade, float preco){
+    Transacoes(int id, String nomeHelinho, String nomeFabricante, int compra_venda, String data,
+               String cliente, String funcionario, int quantidade, float preco){
         this.id = id;
+        this.nomeHelinho = nomeHelinho;
+        this.nomeFabricante = nomeFabricante;
         this.compra_venda = compra_venda;
         this.data = data;
         this.cliente = cliente;
@@ -27,7 +32,10 @@ public class Transacoes {
         this.preco = preco;
     }
 
-    Transacoes(int compra_venda, String data, String cliente, String funcionario, int quantidade, float preco){
+    public Transacoes(String nomeHelinho, String nomeFabricante, int compra_venda, String data,
+                      String cliente, String funcionario, int quantidade, float preco){
+        this.nomeHelinho = nomeHelinho;
+        this.nomeFabricante = nomeFabricante;
         id = 0;
         this.compra_venda = compra_venda;
         this.data = data;
@@ -63,5 +71,13 @@ public class Transacoes {
 
     public int getId() {
         return id;
+    }
+
+    public String getNomeHelinho() {
+        return nomeHelinho;
+    }
+
+    public String getNomeFabricante() {
+        return nomeFabricante;
     }
 }

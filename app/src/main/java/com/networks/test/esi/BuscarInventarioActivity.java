@@ -33,7 +33,7 @@ public class BuscarInventarioActivity extends AppCompatActivity implements View.
 
         List<Helicoptero> helinhos = BDFuncoesHeli.listaHelinhos(this);
         final ListView todosHelinhos = (ListView) findViewById(R.id.buscaInve_listView);
-        ListViewHeli adapter = new ListViewHeli(helinhos, this);
+        ListViewHeli adapter = new ListViewHeli(helinhos,null, this);
         todosHelinhos.setAdapter(adapter);
 
         todosHelinhos.setOnItemClickListener(new AdapterView.OnItemClickListener() {

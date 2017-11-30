@@ -48,6 +48,8 @@ public class BDTabelas {
 
         static final String TRANSACOES = "transacoes";
 
+        static final String _NOME_HELINHO = "nome_helinho";
+        static final String _NOME_FABRICANTE = "nome_fabricante";
         static final String _COMPRA_VENDA = "compra_venda";
         static final String _DATA = "data";
         static final String _CLIENTE = "cliente";
@@ -56,22 +58,13 @@ public class BDTabelas {
         static final String _PRECO = "preco";
     }
 
-    static class TabelaClienteVendedor implements BaseColumns {
+    static class TabelaCliente implements BaseColumns {
 
-        static final String CLIENTE_VENDEDOR = "cliente_vendedor";
+        static final String CLIENTE = "cliente";
 
+        static final String _COMPRADOR_VENDEDOR = "comprador_vendedor";
         static final String _NOME = "nome";
-        static final String _CNPJ = "cnpj";
-        static final String _ENDERECO = "endereco";
-        static final String _TELEFONE = "telefone";
-    }
-
-    static class TabelaClienteComprador implements BaseColumns {
-
-        static final String CLIENTE_COMPRADOR = "cliente_comprador";
-
-        static final String _NOME = "nome";
-        static final String _CPF = "cpf";
+        static final String _CPF_CNPJ = "cpf_cnpj";
         static final String _ENDERECO = "endereco";
         static final String _TELEFONE = "telefone";
     }

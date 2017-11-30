@@ -4,6 +4,7 @@
     <string name="zero">-</string>
     <string name="unidades_text">unidades</string>
     <string name="buscas_string">buscar</string>
+    <string name="cancelar_string">cancelar</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -82,6 +83,7 @@
     <string name="estoque_vazio_string">Unidade não pode ser vendida, não há estoque.</string>
     <string name="heli_n_encontrado_string">Helicoptero não encontrado, tente novamente.</string>
     <string name="heli_existente_string">Helicoptero já registrado.</string>
+    <string name="parametros_incorretos_string">Parâmetros incorretos.</string>
 
     <!-- contentDescription -->
     <string name="logo_description">Logo</string>
@@ -89,5 +91,12 @@
     <string name="foto_helinho_description">Foto do helicoptero</string>
     <string name="moneyy">$</string>
     <string name="botao_description">botao</string>
+    <string name="buscar_cliente_string">Buscar Cliente</string>
+    <string name="acicionar_cliente_string">Acicionar Cliente</string>
+    <string name="escolha_o_cliente_string">Escolha o cliente</string>
+    <string name="enderecoo_string">Endereço</string>
+    <string name="cpf_cnpj_string">CPF/CNPJ</string>
+    <string name="telefone_string">Telefone</string>
+    <string name="cliente_existente_string">Cliente já registrado</string>
 
 </resources>

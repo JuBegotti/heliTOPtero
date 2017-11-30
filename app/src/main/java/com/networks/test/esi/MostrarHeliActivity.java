@@ -67,11 +67,19 @@ public class MostrarHeliActivity extends AppCompatActivity implements View.OnCli
             case R.id.helinho_imagem:
                 break;
             case R.id.realizar_venda:
-                if(unidadesInt>0) startActivity(new Intent(getApplicationContext(), RealizarVendaActivity.class));
+                if(unidadesInt>0) {
+                    Intent i = new Intent(getApplicationContext(), RealizarVendaActivity.class);
+                    i.putExtra("nome",helinho.getNome());
+                    i.putExtra("cliente","");
+                    startActivity(i);
+                }
                 else Mensagens.mensagem(this, R.string.erro_titulo,R.string.estoque_vazio_string);
                 break;
             case R.id.realizar_compra:
-                startActivity(new Intent(getApplicationContext(), RealizarCompraActivity.class));
+                Intent i = new Intent(getApplicationContext(), RealizarCompraActivity.class);
+                i.putExtra("nome",helinho.getNome());
+                i.putExtra("cliente","");
+                startActivity(i);
                 break;
             default:
                 break;
